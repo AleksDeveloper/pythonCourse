@@ -7,7 +7,10 @@ if (height>1.20):
     elif (age >= 12 and age <= 18):
         bill += 7
     elif (age > 18):
-        bill += 12
+        if (age >= 45 and age <= 55):
+            bill = bill
+        else:
+            bill += 12
     wantPhotos = input("Do you want photos? Y/N ")
     if (wantPhotos.upper() == "Y"):
         bill += 3
