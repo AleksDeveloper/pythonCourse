@@ -1,5 +1,6 @@
 from pycountry import countries
 import random
+import functions
 
 from openpyxl import Workbook
 from openpyxl.utils import get_column_letter
@@ -31,24 +32,16 @@ def getRandomCountry():
 def isMoneyLeftEnough(money, namesIndexLeft):
     return false
 
-"""def formatMyList(whichList):
-    newList = [""]
-    for x in whichList:
-        newList = x[:-2]
-        print x[:-2]"""
-
 def openList():
     with open('Python24EneroLista.txt') as lista:
         lines = lista.readlines()
-    #print("IMPRIMO TODAS LAS LINEAS DEL ARCHIVO: \n",lines)
-    #print("\nIMPRIMO RANDOM DEL ARCHIVO: ",random.choice(lines))
-    #print(type(lines))
     return lines
 
 def fillListMoney():
     for x in range(len(listNames)):
         #print("x in fill list is ",x)
-        if x == 16:
+        #print(len(listNames))
+        if x == len(listNames)-1:
             listMoney.append(moneyLeft)
         else:
             listMoney.append(getRandomMoney(moneyLeft))
@@ -105,7 +98,6 @@ def saveDoc():
     wb.save("EXAMPLE.xlsx")
 
 
-
 listNames = openList()
 #print(listNames)
 #print(getRandomMoney(moneyLeft))
@@ -119,5 +111,6 @@ fillListMoney()
 fillListCountries()
 setMoneyFields()
 setCountryFields()
+functions.holamundo()
 saveDoc()
 
